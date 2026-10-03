@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Academic Works</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 class="brand" id="brand" title="Back to Home">My Academic Works<span id="mode">Visitors can view everything. Only the owner can edit.</span></h1>
+    <div>
+      <button class="btn alt ownerOnly" id="publishBtn">Publish for visitors</button>
+      <button class="btn alt ownerOnly" id="exportBtn">Backup</button>
+      <button class="btn alt ownerOnly" id="importBtn">Restore</button>
+      <button class="btn" id="lockBtn">Owner login</button>
+      <input type="file" id="importFile" accept=".json" hidden>
+    </div>
+  </header>
+
+  <div id="homeView"><section class="profile" id="profile" aria-label="About me"></section><div id="overview"></div></div>
+
+  <nav class="tabs" id="tabs" role="tablist"></nav>
+  <section class="sheet" id="sheet" hidden>
+    <h2 id="catTitle"></h2>
+    <p class="sub" id="catSub"></p>
+
+    <div class="form" id="form">
+      <div><label for="fTitle">Title</label><input id="fTitle" placeholder="e.g. Quiz 1 – Algebra"></div>
+      <div><label for="fScore">Score (optional)</label><input id="fScore" placeholder="e.g. 18/20"></div>
+      <div class="full"><label for="fNote">Notes (optional)</label><textarea id="fNote" rows="2"></textarea></div>
+      <div><label for="fImg">Images</label><input type="file" id="fImg" accept="image/*" multiple></div>
+      <div><label for="fFile">Files (PDF, Word, etc.)</label><input type="file" id="fFile" multiple></div>
+      <div class="full"><button class="btn red" id="saveBtn">Save to this category</button> <button class="btn alt" id="cancelEdit" hidden>Cancel edit</button> <span class="err" id="formMsg"></span></div>
+    </div>
+
+    <div class="stats" id="stats"></div>
+    <div class="tools">
+      <input type="search" id="search" placeholder="Search title, notes or file name" aria-label="Search">
+      <select id="sort" aria-label="Sort"><option value="new">Newest first</option><option value="old">Oldest first</option><option value="az">Title A to Z</option><option value="score">Highest score</option></select>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+</div>
+
+<div class="modal" id="codeModal">
+  <div class="box">
+    <h3 style="margin:0">Owner code</h3>
+    <input type="password" id="codeInput" placeholder="Enter your code" autocomplete="off">
+    <div class="err" id="codeErr"></div>
+    <button class="btn" id="codeOk">Unlock</button>
+    <button class="btn alt" id="codeCancel">Cancel</button>
+  </div>
+</div>
+<div class="modal" id="profileModal">
+  <div class="box">
+    <h3 style="margin:0">Edit About Me</h3>
+    <label for="pName">Full name</label><input id="pName">
+    <label for="pTag">Tagline (course or year level)</label><input id="pTag" placeholder="e.g. BS Information Technology, 2nd year">
+    <label for="pSchool">School</label><input id="pSchool">
+    <label for="pBio">About me</label><textarea id="pBio" rows="4"></textarea>
+    <label for="pSkills">Skills or interests (separate with commas)</label><input id="pSkills" placeholder="Math, Programming, Writing">
+    <label for="pEmail">Email (optional)</label><input id="pEmail" type="email">
+    <label for="pPhoto">Profile photo</label><input id="pPhoto" type="file" accept="image/*">
+    <button class="btn red" id="pSave">Save profile</button>
+    <button class="btn alt" id="pCancel">Cancel</button>
+  </div>
+</div>
+<div class="modal" id="lightbox"><button class="lbnav" id="lbPrev" style="left:12px" aria-label="Previous">‹</button><img id="lbImg" alt=""><button class="lbnav" id="lbNext" style="right:12px" aria-label="Next">›</button><div id="lbCap"></div></div>
+
+<script type="application/json" id="seed">[]</script>
+<script src="script.js"></script>
+</body>
+</html>
